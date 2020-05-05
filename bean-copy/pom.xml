@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.lxf.performance</groupId>
+		<artifactId>performance-testing</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+	<groupId>com.lxf.performance.bean</groupId>
+	<artifactId>bean-copy</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>bean-copy</name>
+	<description>Bean转换工具性能对比</description>
+
+	<properties>
+		<java.version>1.8</java.version>
+		<orika.version>1.5.2</orika.version>
+		<dozer.springBoot.version>6.2.0</dozer.springBoot.version>
+		<common.beanutils.version>1.9.3</common.beanutils.version>
+	</properties>
+
+	<dependencies>
+		<!-- orika 依赖-->
+		<dependency>
+			<groupId>ma.glasnost.orika</groupId>
+			<artifactId>orika-core</artifactId>
+			<version>${orika.version}</version>
+		</dependency>
+
+		<!--apache BeanUtils-->
+		<dependency>
+			<groupId>commons-beanutils</groupId>
+			<artifactId>commons-beanutils</artifactId>
+			<version>${common.beanutils.version}</version>
+		</dependency>
+
+		<!--spring BeanUtils  spring boot web  已引入 (spring-bean)-->
+
+		<!--Dozer-->
+		<!--单独使用Dozer-->
+		<!--<dependency>
+			<groupId>com.github.dozermapper</groupId>
+			<artifactId>dozer-core</artifactId>
+			<version>6.4.0</version>
+		</dependency>-->
+		<!--Dozer  spring  boot 项目引用-->
+		<dependency>
+			<groupId>com.github.dozermapper</groupId>
+			<artifactId>dozer-spring-boot-starter</artifactId>
+			<version>${dozer.springBoot.version}</version>
+		</dependency>
+
+		<!-- cglib BeanCopier-->
+		<!-- spring-core 下面也有BeanCopier -->
+		<dependency>
+			<groupId>asm</groupId>
+			<artifactId>asm</artifactId>
+			<version>3.3.1</version>
+		</dependency>
+		<dependency>
+			<groupId>asm</groupId>
+			<artifactId>asm-commons</artifactId>
+			<version>3.3.1</version>
+		</dependency>
+		<dependency>
+			<groupId>asm</groupId>
+			<artifactId>asm-util</artifactId>
+			<version>3.3.1</version>
+		</dependency>
+		<dependency>
+			<groupId>cglib</groupId>
+			<artifactId>cglib-nodep</artifactId>
+			<version>2.2.2</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
